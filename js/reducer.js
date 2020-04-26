@@ -11,15 +11,15 @@ function changeState(state, action){
 }
 
 function dispath(action) {
-  state = changeState(state, { type: "INCREASE_COUNT" })
+  state = changeState(state, action)
   render()
 }
 
-let increment = () => dispath({ type: "INCREASE_COUNT" })
+let increment = () => dispath(action)
 increment()
 increment()
 increment()
-increment()
+
 
 
 function render() {
