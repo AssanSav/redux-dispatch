@@ -1,3 +1,6 @@
+let state = {count: 0}
+let action = { type: 'INCREASE_COUNT' }
+
 function changeState(state, action){
   switch (action.type) {
     case 'INCREASE_COUNT':
@@ -7,7 +10,18 @@ function changeState(state, action){
   }
 }
 
-let state = {count: 0}
-let action = {type: 'INCREASE_COUNT'}
+function dispath(action) {
+  state = changeState(state, { type: "INCREASE_COUNT" })
+  render()
+}
 
-changeState(state, action)
+let increment = () => dispath({ type: "INCREASE_COUNT" })
+increment()
+increment()
+increment()
+increment()
+
+
+function render() {
+  document.body.textContent = state.count
+}
